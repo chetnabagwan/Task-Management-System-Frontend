@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Add Task</h2>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="form-group">
+        <label for="taskName">Task Name:</label>
+        <input type="text" class="form-control" id="taskName" name="taskName" ngModel required>
+      </div>
+      <div class="form-group">
+        <label for="taskDesc">Task Description:</label>
+        <input type="text" class="form-control" id="taskDesc" name="taskDesc" ngModel required>
+      </div>
+      <div class="form-group">
+        <label for="dateCreated">Date Created:</label>
+        <input type="date" class="form-control" id="dateCreated" name="dateCreated" ngModel required>
+      </div>
+      <div class="form-group">
+        <label for="dueDate">Due Date:</label>
+        <input type="date" class="form-control" id="dueDate" name="dueDate" ngModel required>
+      </div>
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <select class="form-control" id="category" name="category" ngModel required>
+          <option value="Today">Today</option>
+          <option value="Important">Important</option>
+          <option value="For Later">For Later</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Create Task</button>
+    </form>
+  </div>

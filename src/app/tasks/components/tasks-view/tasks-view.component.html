@@ -1,0 +1,36 @@
+<div >
+ 
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Serial No</th>
+        <th scope="col">Task Id</th>
+        <th scope="col">User Id</th>
+        <th scope="col">Task Name</th>
+        <th scope="col">Task Description</th>
+        <th scope="col">Created On</th>
+        <th scope="col">Due Date</th>
+        <th scope="col">Category</th>
+        <th scope="col">Assigned By</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks; index as i ">
+        <th scope="row">{{i+1}}</th>
+        <td>{{task.task_id}}</td>
+        <td>{{task.user_id}}</td>
+        <td>{{task.task_name}}</td>
+        <td>{{task.task_desc}} </td>
+        <td>{{task.date_created}}</td>
+        <td>{{task.due_date}}</td>
+        <td>{{task.Category}}</td>
+        <td>{{task.assigned_by}}</td>
+        <td>
+          <button type="button" class="btn btn-primary btn-sm">Edit</button>
+          <button type="button" class="btn btn-danger btn-sm">Delete</button>
+        </td>
+</tr>
+    </tbody>
+  </table>
+</div> 

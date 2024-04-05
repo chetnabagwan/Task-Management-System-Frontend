@@ -1,0 +1,28 @@
+<nav class="navbar navbar-dark bg-dark">
+    <img src="../../assets/logo-navbar.png" height="100" width="100" />
+
+    <p class="navbar-brand">Welcome to Task Management System</p>
+    <!-- <a class="navbar-brand" ngIf=""></a> -->
+    <div class="navbar-brand"><a class="nav-link" href="#">Home</a></div>  
+</nav>
+<div *ngIf="isLoggedIn">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Hello!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div *ngIf="getrole()" class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="tasks/mytasks">My Tasks</a>
+            </li>
+          </ul>
+          <div class="my-2 my-lg-0">
+          <button class="btn btn-primary my-2 my-sm-0" type="button" >+</button>
+        </div>
+        </div>
+        <!-- else of ngIf for manager sub-navbar -->
+      </nav>
+      
+    </div>
