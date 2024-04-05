@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TaskServiceService } from '../../services/task-service.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './tasks-view.component.html',
   styleUrl: './tasks-view.component.css'
 })
-export class TasksViewComponent {
+export class TasksViewComponent implements OnDestroy{
   my_tasks:Subscription;
   tasks:any[];
   
@@ -17,11 +17,18 @@ export class TasksViewComponent {
     private router:Router){}
   
   ngOnInit(){
+    // console.log("hello");
     this.my_tasks=this.taskService.getMyTasks().subscribe(
       (data)=>{
         this.tasks=data;
       }
+      
     )
+  }
+  ngOnDestroy(): void {
+    if (this.my_tasks) {
+      this.my_tasks.unsubscribe();
+    }
   }
 
 }

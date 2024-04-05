@@ -1,30 +1,33 @@
 <div class="container">
-    <h2>Add Task</h2>
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-      <div class="form-group">
-        <label for="taskName">Task Name:</label>
-        <input type="text" class="form-control" id="taskName" name="taskName" ngModel required>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2>Add New Task</h2>
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-group">
+          <label for="task_name">Task Name:</label>
+          <input type="text" class="form-control" id="taskName" name="task_name" ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="task_desc">Task Description:</label>
+          <input type="text" class="form-control" id="task_desc" name="task_desc" ngModel required>
+        </div>
+
+        <div class="form-group">
+          <label for="due_date">Due Date:</label>
+          <input type="date" class="form-control" id="due_date" name="due_date" ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <select class="form-control" id="category" name="category" ngModel required>
+            <option value="Today">Today</option>
+            <option value="Important">Important</option>
+            <option value="For Later">For Later</option>
+          </select>
+        </div>
+        <div class="text-center">
+        <button type="submit" class="btn btn-primary">Create Task</button>
       </div>
-      <div class="form-group">
-        <label for="taskDesc">Task Description:</label>
-        <input type="text" class="form-control" id="taskDesc" name="taskDesc" ngModel required>
-      </div>
-      <div class="form-group">
-        <label for="dateCreated">Date Created:</label>
-        <input type="date" class="form-control" id="dateCreated" name="dateCreated" ngModel required>
-      </div>
-      <div class="form-group">
-        <label for="dueDate">Due Date:</label>
-        <input type="date" class="form-control" id="dueDate" name="dueDate" ngModel required>
-      </div>
-      <div class="form-group">
-        <label for="category">Category:</label>
-        <select class="form-control" id="category" name="category" ngModel required>
-          <option value="Today">Today</option>
-          <option value="Important">Important</option>
-          <option value="For Later">For Later</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary">Create Task</button>
-    </form>
+      </form>
+    </div>
   </div>
+</div>

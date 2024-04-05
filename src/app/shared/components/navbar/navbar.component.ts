@@ -26,6 +26,7 @@ export class NavbarComponent implements OnDestroy {
     ngOnInit(){
       this.nav= this.authService.successLogin.subscribe((isLoggedIn)=>{
         this.isLoggedIn = isLoggedIn;
+        console.log(isLoggedIn);
         this.role = this.sessionService.getFromSessionStorage('role');
 
       });

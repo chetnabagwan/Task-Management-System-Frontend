@@ -27,4 +27,9 @@ export class SignUpComponent {
     });
 
   }
+  ngOnDestroy(): void {
+    if (this.SignUpResponse) {
+      this.SignUpResponse.unsubscribe();
+    }
+  }
 }

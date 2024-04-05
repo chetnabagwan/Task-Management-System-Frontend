@@ -1,1 +1,38 @@
-<p>assign-tasks works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2>Assign a New Task</h2>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="form-group">
+                <label for="user_id">User Id:</label>
+                <input type="text" class="form-control" id="user_id" name="task_name" ngModel required>
+              </div>
+          <div class="form-group">
+            <label for="task_name">Task Name:</label>
+            <input type="text" class="form-control" id="taskName" name="task_name" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="task_desc">Task Description:</label>
+            <input type="text" class="form-control" id="task_desc" name="task_desc" ngModel required>
+          </div>
+  
+          <div class="form-group">
+            <label for="due_date">Due Date:</label>
+            <input type="date" class="form-control" id="due_date" name="due_date" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="category">Category:</label>
+            <select class="form-control" id="category" name="category" ngModel required>
+              <option value="Today">Today</option>
+              <option value="Important">Important</option>
+              <option value="For Later">For Later</option>
+            </select>
+          </div>
+          <div class="text-center">
+          <button type="submit" class="btn btn-primary">Assign Task</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

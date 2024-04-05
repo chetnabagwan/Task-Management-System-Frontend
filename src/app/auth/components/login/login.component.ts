@@ -23,7 +23,6 @@ export class LoginComponent implements OnDestroy{
     private router:Router){}
 
   onSubmit(formData: NgForm) {
-    console.log(formData.value);
     this.loginResponse = this.authService
       .login(formData.value)
       .subscribe(

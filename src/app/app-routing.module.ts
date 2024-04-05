@@ -4,7 +4,8 @@ import { RouterModule, Routes } from "@angular/router";
 const appRoutes:Routes=[
     {path:'',redirectTo:'auth/login',pathMatch:'full'},
     { path:'auth', loadChildren:()=>import('./auth/auth.module').then((m)=>m.AuthModule) },
-    { path:'tasks', loadChildren:()=>import('./tasks/tasks.module').then((m)=>m.TasksModule)}]
+    { path:'tasks', loadChildren:()=>import('./tasks/tasks.module').then((m)=>m.TasksModule)},
+    {path:'manager', loadChildren:()=>import('./user/user.module').then((m)=>m.UserModule)}]
 
 @NgModule({
     imports: [
