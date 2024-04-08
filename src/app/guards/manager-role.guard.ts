@@ -10,7 +10,7 @@ export const onlyManagerGuard: CanActivateFn = (route, state) => {
   const jwtService = inject(JWTService);
   const router = inject(Router);
 
-  const TOKEN = storageService.getFromSessionStorage('jwt');
+  const TOKEN = storageService.getFromSessionStorage('token');
   const ROLE = jwtService.getRoleFromToken(TOKEN);
 
   if (ROLE === 'manager') {

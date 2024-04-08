@@ -12,31 +12,48 @@
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
           <div class="form-group">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" ngModel class="form-control" required>
+            <input type="text" id="username" name="username" class="form-control" ngModel required username #username="ngModel">
+            <div class="invalid-message" *ngIf="username.invalid && (username.dirty || username.touched)">
+              *Please enter your username.
+            </div>
           </div>
           <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" ngModel class="form-control" required>
+            <input type="password" id="password" name="password" class="form-control" ngModel required password #password="ngModel">
+            <div class="invalid-message" *ngIf="password.invalid && (password.dirty || password.touched)">
+              *Please enter your password.
+            </div>
           </div>
           <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" ngModel class="form-control"required>
+            <input type="text" id="name" name="name" class="form-control" ngModel required name #name="ngModel">
+            <div class="invalid-message" *ngIf="name.invalid && (name.dirty || name.touched)">
+              *Please enter your Name.
+            </div>
           </div>
           <div class="form-group">
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email" ngModel class="form-control" required>
+            <input type="text" id="email" name="email" class="form-control" ngModel required email #email="ngModel">
+            <div class="invalid-message" *ngIf="email.invalid && (email.dirty || email.touched)">
+              *Please enter your valid email.
+            </div>
           </div>
           <div class="form-group">
             <label for="phone_number">Contact:</label>
-            <input type="number" id="contact" name="phone_number" ngModel class="form-control" required>
+            <input type="number" id="contact" name="phone_number" class="form-control" ngModel required  contact #contact="ngModel">
+            <div class="invalid-message" *ngIf="contact.invalid && (contact.dirty || contact.touched)">
+              *Please enter your phone number.
+            </div>
           </div>
           <div class="form-group">
             <label for="gender">Gender:</label>
-            <input type="text" id="gender" name="gender" ngModel class="form-control" required>
+            <input type="text" id="gender" name="gender" class="form-control" ngModel required gender #gender="ngModel">
+            <div class="invalid-message" *ngIf="gender.invalid && (gender.dirty || gender.touched)">
+              *Please enter your gender.
+            </div>
           </div>
-          <div class="btn-container mt-2" class="row justify-content-center">
-
-            <button type="submit" class="btn btn-primary">SignUp</button>
+          <div class="btn-container mt-2">
+            <button type="submit" class="btn btn-primary" [disabled]="!f.valid">SignUp</button>
           </div>
         </form>
       </div>
@@ -44,3 +61,10 @@
   </div>
 </div>
 </div>
+
+
+<!-- GEN_REGEX : '^([A-Za-z]+\s*[A-Za-z]+)+$'
+
+PWD_REGEX : '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{6,20}$'
+
+ID_REGEX : '^([0-9]{4}$)' -->

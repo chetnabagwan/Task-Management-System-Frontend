@@ -5,31 +5,46 @@
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="form-group">
                 <label for="user_id">User Id:</label>
-                <input type="text" class="form-control" id="user_id" name="task_name" ngModel required>
+                <input type="text" class="form-control" id="user_id" name="user_id" ngModel required userid #userid="ngModel" pattern="^([0-9]{4}$)">
+                <div class="invalid-message" *ngIf="userid.invalid && (userid.dirty || userid.touched)">
+                  *Please enter valid user id.
+                </div>
               </div>
           <div class="form-group">
             <label for="task_name">Task Name:</label>
-            <input type="text" class="form-control" id="taskName" name="task_name" ngModel required>
+            <input type="text" class="form-control" id="taskName" name="task_name" ngModel required taskname #taskname="ngModel" pattern="^([A-Za-z]+\s*[A-Za-z]+)+$">
+            <div class="invalid-message" *ngIf="taskname.invalid && (taskname.dirty || taskname.touched)">
+              *Please enter task name.
+            </div>
           </div>
           <div class="form-group">
             <label for="task_desc">Task Description:</label>
-            <input type="text" class="form-control" id="task_desc" name="task_desc" ngModel required>
+            <input type="text" class="form-control" id="task_desc" name="task_desc" ngModel required taskdesc #taskdesc="ngModel" pattern="^([A-Za-z]+\s*[A-Za-z]+)+$">
+            <div class="invalid-message" *ngIf="taskdesc.invalid && (taskdesc.dirty || taskdesc.touched)">
+              *Please enter task description.
+            </div>
           </div>
   
           <div class="form-group">
             <label for="due_date">Due Date:</label>
-            <input type="date" class="form-control" id="due_date" name="due_date" ngModel required>
+            <input type="date" class="form-control" id="due_date" name="due_date" ngModel required duedate #duedate="ngModel">
+            <div class="invalid-message" *ngIf="duedate.invalid && (duedate.dirty || duedate.touched)">
+              *Please enter due date.
+            </div>
           </div>
           <div class="form-group">
             <label for="category">Category:</label>
-            <select class="form-control" id="category" name="category" ngModel required>
+            <select class="form-control" id="category" name="category" ngModel required category #category="ngModel">
               <option value="Today">Today</option>
               <option value="Important">Important</option>
               <option value="For Later">For Later</option>
             </select>
+            <div class="invalid-message" *ngIf="category.invalid && (category.dirty || category.touched)">
+              *Please select task category.
+            </div>
           </div>
           <div class="text-center">
-          <button type="submit" class="btn btn-primary">Assign Task</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Assign Task</button>
         </div>
         </form>
       </div>
