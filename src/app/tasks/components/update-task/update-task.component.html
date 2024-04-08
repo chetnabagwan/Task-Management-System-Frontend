@@ -1,0 +1,42 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="text-center">Edit Task</h2>
+            <form (ngSubmit)="OnSubmit(f)" #f="ngForm">
+              <div class="form-group">
+                <label for="task_id" class="font-weight-bold">Task ID:</label>
+                <input type="text" class="form-control font-weight-bold" id="task_id" name="task_id" ngModel required>
+              </div>
+              <div class="form-group">
+                <label for="task_name" class="font-weight-bold">Task Name:</label>
+                <input type="text" class="form-control font-weight-bold" id="task_name" name="task_name" ngModel required>
+              </div>
+              <div class="form-group">
+                <label for="task_desc" class="font-weight-bold">Task Description:</label>
+                <input type="text" class="form-control font-weight-bold" id="task_desc" name="task_desc" ngModel required>
+              </div>
+              <div class="form-group">
+                <label for="due_date" class="font-weight-bold">Due Date:</label>
+                <input type="date" class="form-control font-weight-bold" id="due_date" name="due_date" ngModel required>
+              </div>
+              <!-- <div class="form-group">
+                <label for="is_completed" class="font-weight-bold">Task Completed:</label>
+                <input type="checkbox" class="form-check-input font-weight-bold" id="is_completed" name="is_completed" ngModel>
+              </div> -->
+              <div class="form-group">
+                <label for="is_completed" class="font-weight-bold">Completed:</label>
+                <input type="text" class="form-control font-weight-bold" id="is_completed" name="is_completed" ngModel required>
+              </div>
+              <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary">Update Task</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

@@ -1,5 +1,7 @@
 <div>
-    <a class="nav-link" (click)="toggleProfileCard()">Profile </a>
+    <a class="nav-link" (click)="toggleProfileCard()"> <div class="profile-pic">
+        <img src="../../assets/user.png" alt="">
+    </div></a>
     <app-profile-card *ngIf="showProfileCard"></app-profile-card>
 </div>
 

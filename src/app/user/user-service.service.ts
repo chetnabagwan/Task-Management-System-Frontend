@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SessionStorageService } from '../services/session-storage-service.service';
+import { updateProfile } from '../models/update-profile.model';
 
 export type users={
   user_id:number;
@@ -11,6 +12,7 @@ export type users={
   phone_number:number;
   gender:string;
 }
+
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +38,15 @@ export class UserServiceService {
       )}`,
     }),
   });
+ }
+
+ updateProfile(data:updateProfile):Observable<any>{
+  return this.http.put('http://localhost:5000/v1/update-my-profile',data,{ headers: new HttpHeaders({
+    Authorization: `Bearer ${this.storageService.getFromSessionStorage(
+      'token'
+    )}`,
+  }),
+});
  }
 
  

@@ -15,7 +15,7 @@ export const isLoggedInGuard: CanActivateFn = (route, state) => {
     return true;
   } else {
     authService.successLogin.next(false);
-    router.navigate(['auth/login']);
+    router.navigate(['/auth/login']);
     return false;
   }
 };

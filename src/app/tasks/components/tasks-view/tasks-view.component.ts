@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './tasks-view.component.css'
 })
 export class TasksViewComponent implements OnDestroy{
+
   my_tasks:Subscription;
   tasks:any[];
   
@@ -25,10 +26,19 @@ export class TasksViewComponent implements OnDestroy{
       
     )
   }
+
+  deleteTask(taskId:number) {
+    this.taskService.deleteTask(taskId).subscribe(() => {
+      this.router.navigate(['/tasks/mytasks']);
+    })
+    }
+
+
   ngOnDestroy(): void {
     if (this.my_tasks) {
       this.my_tasks.unsubscribe();
     }
   }
+
 
 }

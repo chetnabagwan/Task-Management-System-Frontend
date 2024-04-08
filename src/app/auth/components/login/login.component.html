@@ -10,15 +10,20 @@
           <form (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="form-group">
               <label for="username">Username:</label>
-              <input type="text" id="username" name="username" ngModel class="form-control" required>
+              <input type="text" id="username" name="username" class="form-control" ngModel required username #username="ngModel">
+              <div class="invalid-message" *ngIf="username.invalid && (username.dirty || username.touched)">
+                *Please enter your username.
+              </div>
             </div>
             <div class="form-group">
               <label for="password">Password:</label>
-              <input type="password" id="password" name="password" ngModel class="form-control" required>
+              <input type="password" id="password" name="password" class="form-control" ngModel required #password="ngModel">
+              <div class="invalid-message" *ngIf="password.invalid && (password.touched || password.dirty)">
+                *Please enter your password.
+              </div>
             </div>
             <div class="btn-container mt-2">
-
-              <button type="submit" class="btn btn-primary">Login</button>
+              <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Login</button>
             </div>
           </form>
           <p class="mt-3 text-center">Don't have an account? <a routerLink="/auth/signup">Sign Up</a></p>

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { createTaskDetails } from '../../models/create-task.model';
 import { MyTasks } from '../../models/view-task.model';
 import { assignTaskDetails } from '../../models/assign-task.model';
+import { updateTask } from '../../models/update-task.model';
 
 export type my_tasks={
   task_id:number,
@@ -82,7 +83,24 @@ export class TaskServiceService {
     });
   }
   
-  updateTask(){}
+  updateTask(task:updateTask):Observable<any>{
+    return this.http.put('http://localhost:5000/v1/update-tasks',task, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.storageService.getFromSessionStorage(
+          'token'
+        )}`,
+      }),
+    });
+  }
 
-  deleteTask(){}
+  deleteTask(id:number):Observable<any>{
+    let url = `http://localhost:5000/v1/delete-tasks/${id}`;
+    return this.http.delete(url, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.storageService.getFromSessionStorage(
+          'token'
+        )}`,
+      }),
+    });
+  }
 }

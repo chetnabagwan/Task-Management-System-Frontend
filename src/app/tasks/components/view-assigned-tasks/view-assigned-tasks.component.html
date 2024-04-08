@@ -24,8 +24,8 @@
             <td>{{task.due_date}}</td>
             <td>{{task.is_completed}}</td>
             <td>
-              <button type="button" class="btn btn-primary btn-sm">Edit</button>
-              <button type="button" class="btn btn-danger btn-sm">Delete</button>
+              <button type="button" class="btn btn-primary btn-sm" routerLink="/tasks/edit">Edit</button>
+              <button type="button" class="btn btn-danger btn-sm" (click)="deleteTask((task?.id))">Delete</button>
             </td>
     </tr>
         </tbody>

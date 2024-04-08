@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -7,16 +8,14 @@ import { Subscription } from 'rxjs';
   styleUrl: './profile-card.component.css'
 })
 export class ProfileCardComponent {
-  my_profile:Subscription;
+  isLoggedIn: boolean;
   
-
-  myProfile(){
-
+  constructor(private router:Router){}
+  
+  logout(): void {
+    sessionStorage.clear();
+    this.isLoggedIn = false;
+    this.router.navigate(['auth/login']);
   }
-
-  logout() {
-  throw new Error('Method not implemented.');
-  }
-
 
 }

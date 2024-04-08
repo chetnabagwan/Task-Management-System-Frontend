@@ -11,6 +11,7 @@
         <th scope="col">Created On</th>
         <th scope="col">Due Date</th>
         <th scope="col">Category</th>
+        <th scope="col">Completed</th>
         <th scope="col">Assigned By</th>
         <th scope="col">Actions</th>
       </tr>
@@ -24,11 +25,12 @@
         <td>{{task.task_desc}} </td>
         <td>{{task.date_created}}</td>
         <td>{{task.due_date}}</td>
-        <td>{{task.Category}}</td>
+        <td>{{task.category}}</td>
+        <td>{{task.is_completed}}</td>
         <td>{{task.assigned_by}}</td>
         <td>
-          <button type="button" class="btn btn-primary btn-sm">Edit</button>
-          <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          <button type="button" class="btn btn-primary btn-sm" routerLink="/tasks/edit"> Edit</button>
+          <button type="button" class="btn btn-danger btn-sm" (click)="deleteTask((task?.id))"> Delete</button>
         </td>
 </tr>
     </tbody>

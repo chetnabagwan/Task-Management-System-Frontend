@@ -1,4 +1,4 @@
-<div *ngIf="user" class="container">
+<!-- <div *ngIf="user" class="container">
     <h2>User Profile</h2>
     <p><strong>User ID:</strong> {{ user.user_id }}</p>
     <p><strong>Username:</strong> {{ user.username }}</p>
@@ -6,5 +6,20 @@
     <p><strong>Email:</strong> {{ user.email }}</p>
     <p><strong>Phone Number:</strong> {{ user.phone_number }}</p>
     <p><strong>Gender:</strong> {{ user.gender }}</p>
+  </div>
+   -->
+   <div *ngIf="user" class="container d-flex justify-content-center mt-5">
+    <div class="card" style="width: 18rem; background-color: black; color: white;">
+      <div class="card-body">
+        <h5 class="card-title" class="text-center">My Profile</h5>
+      <hr>
+        <p class="card-text"><strong>User ID:</strong> {{ user.user_id }}</p>
+        <p class="card-text"><strong>Username:</strong> {{ user.username }}</p>
+        <p class="card-text"><strong>Name:</strong> {{ user.name }}</p>
+        <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+        <p class="card-text"><strong>Phone Number:</strong> {{ user.phone_number }}</p>
+        <p class="card-text"><strong>Gender:</strong> {{ user.gender }}</p>
+      </div>
+    </div>
   </div>
   

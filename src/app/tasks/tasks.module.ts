@@ -7,12 +7,17 @@ import { CreateTasksComponent } from './components/create-tasks/create-tasks.com
 import { FormsModule } from '@angular/forms';
 import { AssignTasksComponent } from './components/assign-tasks/assign-tasks.component';
 import { ViewAssignedTasksComponent } from './components/view-assigned-tasks/view-assigned-tasks.component';
+import { UpdateTaskComponent } from './components/update-task/update-task.component';
+import { isLoggedInGuard } from '../guards/isLoggedIn.guard';
+import { onlyUserGuard } from '../guards/user-role.guard';
+import { onlyManagerGuard } from '../guards/manager-role.guard';
 
 const taskRoutes:Routes=[
-  {path:'mytasks', component:TasksViewComponent},
-  {path:'createtasks', component:CreateTasksComponent},
-  {path:'assigntasks',component:AssignTasksComponent},
-  {path:'taskstatus',component:ViewAssignedTasksComponent}
+  {path:'mytasks', component:TasksViewComponent, canActivate:[isLoggedInGuard,onlyUserGuard]},
+  {path:'createtasks', component:CreateTasksComponent, canActivate:[isLoggedInGuard,onlyUserGuard]},
+  {path:'assigntasks',component:AssignTasksComponent, canActivate:[isLoggedInGuard,onlyManagerGuard]},
+  {path:'taskstatus',component:ViewAssignedTasksComponent, canActivate:[isLoggedInGuard,onlyManagerGuard]},
+  {path:'edit',component:UpdateTaskComponent, canActivate:[isLoggedInGuard,onlyUserGuard,onlyManagerGuard]}
 ]
 
 @NgModule({
@@ -20,7 +25,8 @@ const taskRoutes:Routes=[
     TasksViewComponent,
     CreateTasksComponent,
     AssignTasksComponent,
-    ViewAssignedTasksComponent
+    ViewAssignedTasksComponent,
+    UpdateTaskComponent
   ],
   imports: [
     CommonModule,

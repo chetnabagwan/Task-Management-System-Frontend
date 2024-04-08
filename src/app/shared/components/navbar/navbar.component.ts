@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { AuthService } from '../../../auth/auth-service.service';
 import { Subscription } from 'rxjs';
 import { SessionStorageService } from '../../../services/session-storage-service.service';
@@ -12,6 +12,7 @@ export class NavbarComponent implements OnDestroy {
     role:string;
     isLoggedIn:boolean = false;
     nav:Subscription;
+
     constructor(private authService:AuthService,
       private sessionService:SessionStorageService){}
  
